@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Kopsis Page 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(to right, #0F0E2C, #1C6AC4);
+            position: relative;
+        }
+
+        .logo {
+            height: 80px;
+            width: 80px;
+            background-color: white;
+            border-radius: 50px;
+            padding: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 12px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .hero img {
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            top: 20px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+
+        .herotext {
+            text-align: left;
+            width: 70%;
+            margin-top: -100px;
+        }
+
+        .hero-text {
+            font-size: 40px;
+            color: #F90000;
+        }
+
+        .hero-heading {
+            font-size: 50px;
+            font-weight: bold;
+            color: #F3C23B;
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 90%;
+            border-radius: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            width: 90%;
+            text-align: left;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .footer {
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .logo-footer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer .bg {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            object-fit: cover;
+            z-index: 0;
+            height: 300px;
+        }
+
+        .bottom {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            color: white;
+            align-items: center;
+            text-align: left;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo {
+                height: 50px;
+                width: 50px;
+                padding: 5px;
+            }
+
+            .hero img {
+                width: 100%;
+                height: 90%;
+                top: 79px;
+                object-fit: cover;
+            }
+
+            .hero-heading {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            .hero-text {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 79px;
+                left: 0;
+                background: linear-gradient(to bottom, #0F0E2C, #1C6AC4);
+                width: 100%;
+                text-align: center;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .footer .bg {
+                height: 100%;
+            }
+
+            .bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="asset/logo-smk.png" alt="logo" class="logo">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="faq.html">Faq</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="hero">
+            <img src="asset/header.png" alt="hero" class="hero">
+            <div class="herotext">
+                <p class="hero-heading">F.A.Q</p>
+                <p class="hero-text">Mitra Terpercaya Mewujudkan<br>SDM Koperasi Profesional, Tangguh, dan Berjati Diri</p>
+            </div>
+        </div>
+        <div class="content">
+            <center>
+                <div class="accordion">Apa saja pelayanan koperasi sekolah?</div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus facilis voluptatum ea aut animi amet laborum? Ipsam labore dignissimos corporis hic quam aspernatur architecto, magni rerum eaque sunt! Adipisci sit sunt ex error! Itaque repellat dolor vero deleniti placeat voluptatibus rerum eaque! Porro quos ducimus et explicabo alias minus sequi nostrum numquam ab eum repudiandae illum quisquam distinctio officiis dolorum praesentium asperiores, esse doloribus unde consequatur repellendus atque. Ullam ipsam fugit ratione? Repellendus expedita reiciendis cumque, inventore ut provident perspiciatis ab harum veritatis accusamus voluptates quis atque enim delectus officiis, ullam reprehenderit esse labore! Labore sed quasi ducimus sequi.</p>
+                </div>
+                <br><br>
+                <div class="accordion">Apa saja manfaat koperasi sekolah?</div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus facilis voluptatum ea aut animi amet laborum? Ipsam labore dignissimos corporis hic quam aspernatur architecto, magni rerum eaque sunt! Adipisci sit sunt ex error! Itaque repellat dolor vero deleniti placeat voluptatibus rerum eaque! Porro quos ducimus et explicabo alias minus sequi nostrum numquam ab eum repudiandae illum quisquam distinctio officiis dolorum praesentium asperiores, esse doloribus unde consequatur repellendus atque. Ullam ipsam fugit ratione? Repellendus expedita reiciendis cumque, inventore ut provident perspiciatis ab harum veritatis accusamus voluptates quis atque enim delectus officiis, ullam reprehenderit esse labore! Labore sed quasi ducimus sequi.</p>
+                </div>
+                <br><br>
+                <div class="accordion">Apa saja pelayanan Fo?</div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus facilis voluptatum ea aut animi amet laborum? Ipsam labore dignissimos corporis hic quam aspernatur architecto, magni rerum eaque sunt! Adipisci sit sunt ex error! Itaque repellat dolor vero deleniti placeat voluptatibus rerum eaque! Porro quos ducimus et explicabo alias minus sequi nostrum numquam ab eum repudiandae illum quisquam distinctio officiis dolorum praesentium asperiores, esse doloribus unde consequatur repellendus atque. Ullam ipsam fugit ratione? Repellendus expedita reiciendis cumque, inventore ut provident perspiciatis ab harum veritatis accusamus voluptates quis atque enim delectus officiis, ullam reprehenderit esse labore! Labore sed quasi ducimus sequi.</p>
+                </div>
+            </center>
+        </div>
+    </main>
+    <footer class="footer">
+        <img src="asset/header.png" alt="footer" class="bg">
+        <div class="footer-container">
+            <div class="footer-section" style="z-index: 3; margin-top: 20px;">
+                <div class="logo-footer">
+                    <img src="asset/logo-smk.png" alt="SMK Negeri 1 Banyuwangi Logo" class="logo">
+                    <h3>SMK<br>NEGERI 1<BR>BANYUWANGI</h3>
+                </div>
+            </div>
+            <div class="footer-section" style="z-index: 3; margin-top: 20px;">
+                <h3>OVERVIEW</h3>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">TENTANG KAMI</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" style="z-index: 3; margin-top: 20px;">
+                <h3>COMMUNITY</h3>
+                <ul>
+                    <li>M.Gerry Syahreza (8)</li>
+                    <li>Naufal Dzaki A.D (23)</li>
+                    <li>Zivanno Erico Putra Surya (35)</li>
+                    <li>Filbert Liem (1)</li>
+                    <li>Kenzie Dzaki Wahyudi (4)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <p style="z-index: 3;">Jalan Wijaya Kusuma No. 46,<br>Mojopanggung Banyuwangi</p>
+            <p class="footer-copyright" style="z-index: 3;">© Copyright SMKN 1 BANYUWANGI. All Rights Reserved</p>
+            <div class="contact" style="z-index: 3; margin-top: 20px;">
+                <h3>Contact:</h3>
+                <div class="contact-info">
+                    <i class="bi bi-whatsapp" style="font-size: 30px;"></i>
+                    <span>+62-123456789</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        let acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

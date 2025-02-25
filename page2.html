@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Kopsis Page 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(to right, #0F0E2C, #1C6AC4);
+            position: relative;
+        }
+
+        .logo {
+            height: 80px;
+            width: 80px;
+            background-color: white;
+            border-radius: 50px;
+            padding: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 12px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .hero img {
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            top: 20px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+
+        .herotext {
+            text-align: left;
+            width: 70%;
+            margin-top: -100px;
+        }
+
+        .hero-text {
+            font-size: 40px;
+            color: #F90000;
+        }
+
+        .hero-heading {
+            font-size: 50px;
+            font-weight: bold;
+            color: #F3C23B;
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-layout {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 90px;
+            align-items: center;
+            gap: 40px;
+            width: 90%;
+        }
+
+        .content-layout img {
+            width: 80%;
+            border-radius: 30px;
+        }
+
+        .content-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-heading {
+            font-size: 50px;
+            text-align: left;
+            font-weight: bold;
+            color: #3D3BF3;
+        }
+
+        .p-content {
+            font-size: 33px;
+            text-align: left;
+        }
+
+        .center {
+            display: none;
+        }
+
+        .content-2 {
+            flex-direction: row-reverse;
+        }
+
+        .footer {
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .logo-footer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer .bg {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            object-fit: cover;
+            z-index: 0;
+            height: 300px;
+        }
+
+        .bottom {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            color: white;
+            align-items: center;
+            text-align: left;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo {
+                height: 50px;
+                width: 50px;
+                padding: 5px;
+            }
+
+            .hero img {
+                width: 100%;
+                height: 90%;
+                top: 79px;
+                object-fit: cover;
+            }
+
+            .hero-heading {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            .hero-text {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 79px;
+                left: 0;
+                background: linear-gradient(to bottom, #0F0E2C, #1C6AC4);
+                width: 100%;
+                text-align: center;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .content-layout {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+
+            .content-layout img {
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .center {
+                display: block;
+            }
+
+            .content {
+                margin-top: 20px;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .content-heading {
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+
+            .p-content {
+                font-size: 20px;
+            }
+
+            .content-2 {
+                flex-direction: column;
+            }
+
+            .footer .bg {
+                height: 100%;
+            }
+
+            .bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="asset/logo-smk.png" alt="logo" class="logo">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="faq.html">Faq</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="hero">
+            <img src="asset/header.png" alt="hero" class="hero">
+            <div class="herotext">
+                <p class="hero-heading">Gallery</p>
+                <p class="hero-text">Mitra Terpercaya Mewujudkan<br>SDM Koperasi Profesional, Tangguh, dan Berjati Diri</p>
+            </div>
+        </div>
+        <div class="content">
+            <center>
+                <div class="content-layout">
+                    <img src="asset/halaman-koperasi.png" alt="content-1" class="img-content">
+                    <div class="content-text">
+                        <p class="content-heading">HALAMAN KOPERASI SISWA</p>
+                        <p class="p-content">Halaman ini menampilkan berbagai dokumentasi kegiatan koperasi kami. Dari rapat anggota, pelatihan kewirausahaan, hingga acara sosial, setiap momen kami abadikan sebagai bukti komitmen dalam membangun koperasi yang maju dan sejahtera. Selamat menikmati galeri foto kami!</p>
+                    </div>
+                </div>
+                <br><br>
+                <div class="content-layout content-2">
+                    <img src="asset/kasir.png" alt="content-1" class="img-content">
+                    <div class="content-text">
+                        <p class="p-content">Koperasi terus berkomitmen untuk tumbuh dan berkembang bersama anggotanya. Melalui berbagai kegiatan, kami membangun solidaritas, meningkatkan kesejahteraan, serta menciptakan peluang ekonomi yang berkelanjutan. Mari bersama-sama mewujudkan koperasi yang lebih maju dan bermanfaat bagi semua!</p>
+                    </div>
+                </div>
+                <div class="content-layout">
+                    <img src="asset/foto3.png" alt="content-1" class="img-content">
+                    <div class="content-text">
+                        <p class="p-content">Dengan semangat gotong royong, inovasi, dan profesionalisme, kami terus berupaya menciptakan peluang serta memperkuat jaringan usaha agar manfaat koperasi dapat dirasakan lebih luas. Mari terus bergerak maju, berpartisipasi aktif, dan bersama-sama membangun koperasi yang lebih kuat. Kami mengundang Anda untuk terus mengikuti perjalanan kami melalui berbagai kegiatan dan inovasi yang akan datang. Sampai jumpa di kesempatan berikutnya, dan tetaplah menjadi bagian dari perubahan positif bagi koperasi dan masyarakat!</p>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </main>
+    <footer class="footer">
+        <img src="asset/header.png" alt="footer" class="bg">
+        <div class="footer-container">
+            <div class="footer-section" style="z-index: 3; margin-top: 20px;">
+                <div class="logo-footer">
+                    <img src="asset/logo-smk.png" alt="SMK Negeri 1 Banyuwangi Logo" class="logo">
+                    <h3>SMK<br>NEGERI 1<BR>BANYUWANGI</h3>
+                </div>
+            </div>
+            <div class="footer-section" style="z-index: 3; margin-top: 20px;">
+                <h3>OVERVIEW</h3>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">TENTANG KAMI</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" style="z-index: 3; margin-top: 20px;">
+                <h3>COMMUNITY</h3>
+                <ul>
+                    <li>M.Gerry Syahreza (8)</li>
+                    <li>Naufal Dzaki A.D (23)</li>
+                    <li>Zivanno Erico Putra Surya (35)</li>
+                    <li>Filbert Liem (1)</li>
+                    <li>Kenzie Dzaki Wahyudi (4)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <p style="z-index: 3;">Jalan Wijaya Kusuma No. 46,<br>Mojopanggung Banyuwangi</p>
+            <p class="footer-copyright" style="z-index: 3;">© Copyright SMKN 1 BANYUWANGI. All Rights Reserved</p>
+            <div class="contact" style="z-index: 3; margin-top: 20px;">
+                <h3>Contact:</h3>
+                <div class="contact-info">
+                    <i class="bi bi-whatsapp" style="font-size: 30px;"></i>
+                    <span>+62-123456789</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
